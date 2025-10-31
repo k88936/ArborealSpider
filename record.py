@@ -91,30 +91,4 @@ def save_entry(entry: Entry):
         print('ERROR' + e)
 
 
-if __name__ == '__main__':
-    # Demo multi-line input (same as provided by the user)
-    demo = (
-        "#7775002   2分钟前  10-30 19:04\n"
-        "统计下不玩游戏的uu\n"
-        "#35737087 刚刚 10-30 19:05\n"
-        "[Alice] 1\n"
-        "#35737091 刚刚 10-30 19:05\n"
-        "[Bob] 不怎么玩\n"
-    )
-
-    entry = parse_entry(demo)
-    # Basic sanity check / test
-    assert entry.id == '7775002', f"unexpected id: {entry.id}"
-
-    print('Parsed entry:')
-    print(json.dumps({'id': entry.id, 'message': entry.message}, ensure_ascii=False, indent=2))
-
-    # DB config matching docker-compose below; adjust as needed or use env vars
-
-    # Try to save to DB; if DB isn't available the exception will surface.
-    try:
-        ensure_table()
-        save_entry(entry)
-        print('Saved entry to database (id=%s)' % entry.id)
-    except Exception as e:
-        print('Failed to save entry to database:', e)
+ensure_table()
