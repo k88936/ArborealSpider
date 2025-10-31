@@ -55,9 +55,7 @@ def report():
     try:
         pygame.mixer.music.load(music_file)
         pygame.mixer.music.play()
-        # Keep the program running while music plays
-        while pygame.mixer.music.get_busy():
-            pygame.time.wait(100)
+
     except Exception as e:
         print(f"Error playing music: {e}")
 
