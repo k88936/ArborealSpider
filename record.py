@@ -58,7 +58,7 @@ def ensure_table():
                     64
                 ) NOT NULL PRIMARY KEY,
                     message TEXT NOT NULL,
-                    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+                    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                     marked     int       default 0                 not null
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
                 """
